@@ -16,10 +16,9 @@
 # limitations under the License.
 #
 
-#$1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME, $4=BLACKIRON_VERSION, $5=BLACKIRON_CODENAME, $6=BLACKIRON_PACKAGE_TYPE, $7=BLACKIRON_RELEASE_TYPE
+#$1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME
 existingOTAjson=.OTA/$1.json
 output=$2/${6}_$1.json
-major_version=$(echo $4 | cut -d'.' -f1)
 
 #cleanup old file
 if [ -f $output ]; then
@@ -35,7 +34,6 @@ if [ -f $existingOTAjson ]; then
 	oem=`grep -n "\"oem\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	device=`grep -n "\"device\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	filename=$3
-	download="https://sourceforge.net/projects/black-iron-project/files/${major_version}.x/$6/$1/$filename/download"
 	version=`echo $4-$5`
 	buildprop=$2/system/build.prop
 	linenr=`grep -n "ro.system.build.date.utc" $buildprop | cut -d':' -f1`
@@ -43,7 +41,7 @@ if [ -f $existingOTAjson ]; then
 	md5=`md5sum "$2/$3" | cut -d' ' -f1`
 	sha256=`sha256sum "$2/$3" | cut -d' ' -f1`
 	size=`stat -c "%s" "$2/$3"`
-	buildtype=$7
+	buildtype=`grep -n "\"buildtype\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	forum=`grep -n "\"forum\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
 	if [ ! -z "$forum" ]; then
 		forum="https:"$forum
@@ -96,7 +94,7 @@ if [ -f $existingOTAjson ]; then
 			"oem": "'$oem'",
 			"device": "'$device'",
 			"filename": "'$filename'",
-			"download": "'$download'",
+			"download": "",
 			"timestamp": '$timestamp',
 			"md5": "'$md5'",
 			"sha256": "'$sha256'",
