@@ -120,8 +120,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_SECURITY_PATCH?=2024-09-05 \
     persist.sys.pihooks_ID?=AP41.240823.009
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/tokay_beta/tokay:15/AP41.240823.009/12329489:user/release-keys" \
-    PihooksGmsModel="Pixel 9" \
-    PihooksBuildFp="google/caiman/caiman:14/AD1A.240530.047.U1/12150698:user/release-keys" \
-    PihooksBuildModel="Pixel 9 Pro"
+PIHOOKS_BUILD_GMS_FINGERPRINT := google/tokay_beta/tokay:15/AP41.240823.009/12329489:user/release-keys
+PIHOOKS_BUILD_FINGERPRINT := google/caiman/caiman:14/AD1A.240530.047.U1/12150698:user/release-keys
+PIHOOKS_MODEL_SPOOF := Pixel 9 Pro
