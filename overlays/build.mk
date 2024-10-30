@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The risingOS Android Project
+# Copyright (C) 2023 The Blackiron Android Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 #
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/rising/overlays
+    vendor/blackiron/overlays
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/permissions/privapp-permissions-google.xml

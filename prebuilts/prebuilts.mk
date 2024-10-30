@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The risingOS Android Project
+# Copyright (C) 2023 The Blackiron Android Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,11 +15,11 @@
 #
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/rising/prebuilts
+    vendor/blackiron/prebuilts
 
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/rising/overlays
+    vendor/blackiron/overlays
 
 ifneq ($(WITH_GMS),true)
 PRODUCT_PACKAGES += \
@@ -49,8 +49,8 @@ endif
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/rising/prebuilts/bootanimation/bootanimation_rising.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_rising.zip \
-    vendor/rising/prebuilts/bootanimation/bootanimation_cyberpunk.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_cyberpunk.zip \
-    vendor/rising/prebuilts/bootanimation/bootanimation_valorant.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_valorant.zip \
-    vendor/rising/prebuilts/bootanimation/bootanimation_google.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_google.zip \
-    vendor/rising/prebuilts/bootanimation/bootanimation_google_monet.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_google_monet.zip
+    vendor/blackiron/prebuilts/bootanimation/bootanimation_blackiron.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_blackiron.zip \
+    vendor/blackiron/prebuilts/bootanimation/bootanimation_cyberpunk.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_cyberpunk.zip \
+    vendor/blackiron/prebuilts/bootanimation/bootanimation_valorant.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_valorant.zip \
+    vendor/blackiron/prebuilts/bootanimation/bootanimation_google.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_google.zip \
+    vendor/blackiron/prebuilts/bootanimation/bootanimation_google_monet.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation_google_monet.zip

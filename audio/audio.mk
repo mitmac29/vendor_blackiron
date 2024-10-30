@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The risingOS Android Project
+# Copyright (C) 2023 The Blackiron Android Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
 #
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/rising/audio
+    vendor/blackiron/audio
 
-AUDIO_SOURCE_DIR := vendor/rising/audio
+AUDIO_SOURCE_DIR := vendor/blackiron/audio
 AUDIO_DEST_DIR := $(TARGET_COPY_OUT_PRODUCT)/media/audio
 
 PRODUCT_COPY_FILES += \

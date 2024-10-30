@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2021-2023 The LineageOS Project
-# Copyright (C) 2023 RisingOS
+# Copyright (C) 2023 Blackiron
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -48,8 +48,8 @@ for strings in $(find "${TMPDIR}"/out/ -name strings.xml); do
 
     echo '</resources>' >> "${target_path}"/strings.xml
 
-    sed -i "s|your Pixel|RisingOS|g" "${target_path}"/strings.xml &&
-    sed -i "s|Pixel|RisingOS|g" "${target_path}"/strings.xml
+    sed -i "s|your Pixel|Blackiron|g" "${target_path}"/strings.xml &&
+    sed -i "s|Pixel|Blackiron|g" "${target_path}"/strings.xml
 done
 
 # Clear the temporary working directory

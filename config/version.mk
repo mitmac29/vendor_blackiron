@@ -1,63 +1,63 @@
-# (C) 2023-2024 RisingOS
+# (C) 2023-2024 Blackiron
 
-# RisingOS versioning
+# Blackiron versioning
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/rising/version
+    vendor/blackiron/version
 
-RISING_FLAVOR := VanillaIceCream
-RISING_VERSION := 6.0
-RISING_CODENAME := Ascension
-RISING_RELEASE_TYPE := BETA
-RISING_CODE := $(RISING_VERSION)
+BLACKIRON_FLAVOR := VanillaIceCream
+BLACKIRON_VERSION := 5.0
+BLACKIRON_CODENAME := Ascension
+BLACKIRON_RELEASE_TYPE := BETA
+BLACKIRON_CODE := $(BLACKIRON_VERSION)
 
-RISING_BUILD_DATE := $(shell date -u +%Y%m%d)
+BLACKIRON_BUILD_DATE := $(shell date -u +%Y%m%d)
 
 CURRENT_DEVICE := $(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
-MAINTAINER_LIST := $(shell cat vendor/risingOTA/risingOS.maintainers)
-DEVICE_LIST := $(shell cat vendor/risingOTA/risingOS.devices)
+MAINTAINER_LIST := $(shell cat OTA/Blackiron.maintainers)
+DEVICE_LIST := $(shell cat OTA/Blackiron.devices)
 
 ifeq ($(filter $(CURRENT_DEVICE),$(DEVICE_LIST)), $(CURRENT_DEVICE))
-    ifdef RISING_MAINTAINER
-        ifneq ($(filter $(RISING_MAINTAINER),$(MAINTAINER_LIST)),)
-            RISING_BUILDTYPE := OFFICIAL
+    ifdef BLACKIRON_MAINTAINER
+        ifneq ($(filter $(BLACKIRON_MAINTAINER),$(MAINTAINER_LIST)),)
+            BLACKIRON_BUILDTYPE := OFFICIAL
         else
-            RISING_BUILDTYPE := UNOFFICIAL
+            BLACKIRON_BUILDTYPE := UNOFFICIAL
         endif
     else
-        RISING_BUILDTYPE := UNOFFICIAL
+        BLACKIRON_BUILDTYPE := UNOFFICIAL
     endif
 else
-    RISING_BUILDTYPE := COMMUNITY
+    BLACKIRON_BUILDTYPE := COMMUNITY
 endif
 
 ifeq ($(WITH_GMS), true)
 	ifeq ($(TARGET_CORE_GMS), true)
-    	RISING_PACKAGE_TYPE ?= CORE
+    	BLACKIRON_PACKAGE_TYPE ?= CORE
 	else 
-    	RISING_PACKAGE_TYPE ?= GAPPS
+    	BLACKIRON_PACKAGE_TYPE ?= GAPPS
 	endif
 else
-    RISING_PACKAGE_TYPE ?= VANILLA
+    BLACKIRON_PACKAGE_TYPE ?= VANILLA
 endif
 
 # Build version
-RISING_BUILD_VERSION := $(RISING_VERSION)-$(RISING_RELEASE_TYPE)-$(RISING_BUILD_DATE)-$(RISING_PACKAGE_TYPE)-$(RISING_BUILDTYPE)-$(CURRENT_DEVICE)
+BLACKIRON_BUILD_VERSION := $(BLACKIRON_VERSION)-$(BLACKIRON_RELEASE_TYPE)-$(BLACKIRON_BUILD_DATE)-$(BLACKIRON_PACKAGE_TYPE)-$(BLACKIRON_BUILDTYPE)-$(CURRENT_DEVICE)
 
 # Display version
-RISING_DISPLAY_VERSION := $(RISING_VERSION)-$(RISING_RELEASE_TYPE)-$(RISING_PACKAGE_TYPE)-$(RISING_BUILDTYPE)-$(CURRENT_DEVICE)
+BLACKIRON_DISPLAY_VERSION := $(BLACKIRON_VERSION)-$(BLACKIRON_RELEASE_TYPE)-$(BLACKIRON_PACKAGE_TYPE)-$(BLACKIRON_BUILDTYPE)-$(CURRENT_DEVICE)
 
-# RisingOS properties
+# Blackiron properties
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.rising.code=$(RISING_CODENAME) \
-    ro.rising.packagetype=$(RISING_PACKAGE_TYPE) \
-    ro.rising.releasetype=$(RISING_BUILDTYPE) \
-    ro.rising.version?=$(RISING_VERSION) \
-    ro.rising.build.version=$(RISING_BUILD_VERSION) \
-    ro.rising.display.version?=$(RISING_DISPLAY_VERSION) \
-    ro.rising.platform_release_codename=$(RISING_FLAVOR) \
-    ro.rising.device=$(CURRENT_DEVICE) \
-    ro.rising.storage?=$(RISING_STORAGE) \
-    ro.rising.ram?=$(RISING_RAM) \
-    ro.rising.battery?=$(RISING_BATTERY) \
-    ro.rising.display_resolution?=$(RISING_DISPLAY)
+    ro.blackiron.code=$(BLACKIRON_CODENAME) \
+    ro.blackiron.packagetype=$(BLACKIRON_PACKAGE_TYPE) \
+    ro.blackiron.releasetype=$(BLACKIRON_BUILDTYPE) \
+    ro.blackiron.version?=$(BLACKIRON_VERSION) \
+    ro.blackiron.build.version=$(BLACKIRON_BUILD_VERSION) \
+    ro.blackiron.display.version?=$(BLACKIRON_DISPLAY_VERSION) \
+    ro.blackiron.platform_release_codename=$(BLACKIRON_FLAVOR) \
+    ro.blackiron.device=$(CURRENT_DEVICE) \
+    ro.blackiron.storage?=$(BLACKIRON_STORAGE) \
+    ro.blackiron.ram?=$(BLACKIRON_RAM) \
+    ro.blackiron.battery?=$(BLACKIRON_BATTERY) \
+    ro.blackiron.display_resolution?=$(BLACKIRON_DISPLAY)
