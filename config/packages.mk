@@ -11,7 +11,8 @@ PRODUCT_PACKAGES += \
     BatteryStatsViewer \
     OmniJaws \
     Updater \
-    GameSpace
+    GameSpace \
+    OmniStyle
 
 ifneq ($(WITH_GMS),true)
 PRODUCT_PACKAGES += \
