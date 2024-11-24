@@ -44,4 +44,5 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.blackiron.storage?=$(BLACKIRON_STORAGE) \
     ro.blackiron.ram?=$(BLACKIRON_RAM) \
     ro.blackiron.battery?=$(BLACKIRON_BATTERY) \
-    ro.blackiron.display_resolution?=$(BLACKIRON_DISPLAY)
+    ro.blackiron.display_resolution?=$(BLACKIRON_DISPLAY) \
+    ro.blackiron.maintainer=$(BLACKIRON_MAINTAINER)
