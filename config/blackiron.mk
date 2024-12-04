@@ -1,4 +1,3 @@
--include vendor/pixel-framework/config.mk
 -include vendor/addons/config.mk
 WITH_GMS ?= false
 ifeq ($(WITH_GMS),true)
