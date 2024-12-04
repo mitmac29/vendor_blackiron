@@ -9,6 +9,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Backgrounds \
     BatteryStatsViewer \
+    LMOFreeform \
+    LMOFreeformSidebar \
     OmniJaws \
     Updater \
     GameSpace \
