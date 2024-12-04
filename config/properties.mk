@@ -34,14 +34,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # misc properties
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.input.video_enabled=false \
-    arm64.memtag.process.system_server=off \
     persist.sys.powerhal.interaction.max=24 \
     persist.sys.powerhal.interaction.max_default=64 \
     persist.sys.powerhal.interaction.max_boost=500 \
     persist.arm64.memtag.app.com.android.se=off \
     persist.arm64.memtag.app.com.google.android.bluetooth=off \
     persist.arm64.memtag.app.com.android.nfc=off \
-    persist.arm64.memtag.system_server=off
+    persist.arm64.memtag.process.system_server=off
 
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
