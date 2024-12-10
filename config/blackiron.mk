@@ -1,7 +1,9 @@
 -include vendor/addons/config.mk
 WITH_GMS ?= false
 ifeq ($(WITH_GMS),true)
--include vendor/gms/products/gms.mk
+-include vendor/gapps/config.mk
+    VENDOR_EXCEPTION_PATHS += \
+    gapps
 endif
 include vendor/blackiron/config/properties.mk
 include vendor/blackiron/config/packages.mk
